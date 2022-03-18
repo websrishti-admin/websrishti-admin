@@ -1,0 +1,96 @@
+<div class="container-fluid" style="padding: 4%;">
+    <h2 style="text-align: left;"><i class='fas fa-file-alt' style='font-size:30px;color:rgb(216, 79, 79); margin-right: 5px;'></i>QUESTION SET</h2>
+
+    <div class="example-container">
+
+
+        <mat-form-field>
+            <mat-select [(ngModel)]="subject" placeholder="Subject" name="subject" (ngModelChange)="selectDetails(subject)">
+                <mat-option *ngFor="let s of subjects " [value]="s">{{ s.subject }} {{ s.subCode}}</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" style="margin: 5px;">
+            <mat-label>Course</mat-label>
+            <input matInput disabled [(ngModel)]="course" name="course" placeholder="B.Tech">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Add Type</mat-label>
+            <input matInput disabled [(ngModel)]="type" name="type" placeholder="Half-Yearly/Annually/Backlog">
+
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Add Stream</mat-label>
+            <input matInput disabled [(ngModel)]="stream" name="stream" placeholder="cse">
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="margin: 5px; ">
+            <mat-label>Add Semester</mat-label>
+            <input disabled matInput #postalCode maxlength="2" [(ngModel)]="sem" name="sem" placeholder="Ex. 3rd Semester" [(ngModel)]="sem" name="sem">
+
+        </mat-form-field>
+
+    </div>
+
+    <!--
+<mat-list role="list" *ngFor="let paper of paperBank">
+    <mat-card *ngIf="paper.subject === this.subject && paper.type === this.type && paper.sem ===this.sem">
+
+        <mat-list-item role="listitem">QUESTION SET BY : {{ paper.teacher | uppercase}}</mat-list-item>
+        <mat-list-item role="listitem">Subject: {{ paper.subject }}</mat-list-item>
+        <mat-list-item role="listitem">Semester: {{ paper.sem }}</mat-list-item>
+        <mat-list-item role="listitem">Year: {{ paper.type }} </mat-list-item>
+        <mat-list-item role="listitem">Date: {{ paper.date }} </mat-list-item>
+        <button mat-raised-button color="accent" (click)="viewPaper(paper.testPapers)">View Questions</button>
+    </mat-card>
+
+</mat-list>
+-->
+
+
+
+    <table class="table" *ngIf="subject" style="margin-top: 15px;" #quesTable>
+        <thead class="thead-purple" style="text-align: center;">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Created by</th>
+                <th scope="col">Course</th>
+                <th scope="col">Stream</th>
+                <th scope="col">Year</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+                <th scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let u of paperBank">
+            <tr style="text-align: center;">
+                <th scope="row">{{ paperBank.indexOf(u) + 1 }}</th>
+                <td>{{ u.teacher }}</td>
+                <td>{{ u.course }}</td>
+                <td>{{ u.stream }}</td>
+                <td>{{ u.type }}</td>
+                <td>{{ u.sem }}</td>
+                <td>{{ u.subject }}</td>
+                <td>{{ u.date }}</td>
+                <td>
+                    <button mat-raised-button color="warn" (click)="viewPaper(u.testPapers)">View Set</button>
+
+                </td>
+                <!--<td>
+                    <img class="diagram" src="https://expertprofessionals.org:8080/{{dataDisplay.diagram}}">
+                    <img class="diagram" src="https://expertprofessionals.org:8080/uploads/1633078654092WhatsApp Image 2021-09-30 at 5.37.03 PM.jpeg">
+                    <button mat-raised-button color="warn" (click)="exportAsXLSX(u)">Download xls</button>
+
+                </td>-->
+                <td>
+                    <i class="fa" style="padding: 5px;font-size:20px; color: rgb(224, 39, 39);margin-right:8px;margin-left: 8px;">&#xf00d;</i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

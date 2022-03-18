@@ -1,0 +1,34 @@
+<div class="container-fluid" style="margin-top: 30px;padding: 5%;width: 100%;">
+
+
+
+    <mat-accordion>
+        <mat-expansion-panel hideToggle *ngFor="let a of answers">
+
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Q => {{ a.question }}
+                </mat-panel-title>
+                <mat-panel-description style="float: right;" *ngIf="a.corrAnswer">
+                    <i class='fas fa-check' style='font-size:20px;color:green'></i>
+                </mat-panel-description>
+                <mat-panel-description style="float: right;" *ngIf="!a.corrAnswer">
+                    <i class="fa" style="font-size:20px; color: rgb(224, 39, 39);margin-right:8px;margin-left: 8px;">&#xf00d;</i>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ul>
+                <li *ngIf="a.diagram" style=" height: 250px;" class="list-group-item" class="diagram" role="listitem">Diagram: <img class="diagram" src="https://expertprofessionals.org:8080/{{a.diagram}}"></li>
+                <li class="list-group-item" role="listitem">{{[a.option1]}}</li>
+                <li *ngIf="a.imgOpt4" class="list-group-item" role="listitem"> (i)<img class="diagram" src="https://expertprofessionals.org:8080/{{a.imgOpt1}}"></li>
+                <li class="list-group-item" role="listitem">{{[a.option2]}}</li>
+                <li *ngIf="a.imgOpt4" class="list-group-item" role="listitem"> (i)<img class="diagram" src="https://expertprofessionals.org:8080/{{a.imgOpt1}}"></li>
+                <li class="list-group-item" role="listitem">{{[a.option3]}}</li>
+                <li *ngIf="a.imgOpt4" class="list-group-item" role="listitem"> (i)<img class="diagram" src="https://expertprofessionals.org:8080/{{a.imgOpt1}}"></li>
+                <li class="list-group-item" role="listitem">{{[a.option4]}}</li>
+                <li *ngIf="a.imgOpt4" class="list-group-item" role="listitem"> (i)<img class="diagram" src="https://expertprofessionals.org:8080/{{a.imgOpt1}}"></li>
+                <li class="list-group-item" role="listitem">Correct Answer: option {{[a.answer]}}</li>
+            </ul>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+</div>

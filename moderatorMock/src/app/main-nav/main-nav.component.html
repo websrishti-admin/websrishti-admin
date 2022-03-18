@@ -1,0 +1,43 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav mode="side" #sidenav opened position="start" style="background-color: rgb(23, 23, 104);">
+        <mat-toolbar style="background-color: rgb(23, 23, 104); color: cornsilk;">Menu</mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="['/']" routerLinkActive="router-link-active" style="color:white"> View Question Set</a>
+            <a mat-list-item [routerLink]="['/diagramSet']" routerLinkActive="router-link-active" style="color:white">View Diagram Set</a>
+            <a mat-list-item [routerLink]="['/descriptiveSet']" routerLinkActive="router-link-active" style="color:white">View Descriptive Set</a>
+            <a mat-list-item [routerLink]="['/allSelectedQuestion']" routerLinkActive="router-link-active" style="color:white">Finalize Question Paper</a>
+            <a mat-list-item [routerLink]="['/testPapers']" routerLinkActive="router-link-active" style="color:white">View Question Paper Bank</a>
+            <a mat-list-item [routerLink]="['/liveTests']" routerLinkActive="router-link-active" style="color:white">Ongoing Tests</a>
+            <a mat-list-item [routerLink]="['/stoppedTests']" routerLinkActive="router-link-active" style="color:white">Archive</a>
+            <a mat-list-item [routerLink]="['/results']" routerLinkActive="router-link-active" style="color:white">Results</a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button> EXPERT PROFESSIONALS
+            <span class="toolbar-spacer"></span><button mat-icon-button [matMenuTriggerFor]="set" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+            <mat-menu #set="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>account_circle</mat-icon>
+                <a [routerLink]="[ '/profile' ]">Profiie</a>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>settings</mat-icon>
+                 <a [routerLink]="[ '/edit']">Edit</a>
+                </button>
+                <button mat-menu-item (click)="logOut()">
+                  <mat-icon>exit_to_app</mat-icon>
+                  <span>Log Out</span>
+                </button>
+            </mat-menu>
+        </mat-toolbar>
+        <div class="main-content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

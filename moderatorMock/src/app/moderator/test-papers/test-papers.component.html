@@ -1,0 +1,52 @@
+<div class="container-fluid" style="padding: 5%;">
+    <div class="row"><i class="fas fa-file-alt" style='margin-left: 10%;margin-right: 10px;font-size:25px;color:rgb(79, 39, 221)'></i>
+        <h2>Final Question Paper Set</h2>
+    </div>
+    <table class="table">
+        <thead class="thead-purple" style="text-align: center;">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Exam Name</th>
+                <th scope="col">Created by</th>
+                <th scope="col">Course</th>
+                <th scope="col">Stream</th>
+                <th scope="col">Name/Year</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Total Marks</th>
+                <th scope="col">Time(mins)</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+               <!--- <th scope="col">DOWNLOAD</th>-->
+                <th scope="col">Remove</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of testpapers" style="text-align: center;">
+                <th scope="row">{{ testpapers.indexOf(u) + 1 }}</th>
+                <td>{{ u.examName }}</td>
+                <td>{{ u.teacher }}</td>
+                <td>{{ u.course }}</td>
+                <td>{{ u.stream }}</td>
+                <td>{{ u.type }}</td>
+                <td>{{ u.sem }}</td>
+                <td>{{ u.subject }}</td>
+                <td>{{ u.totalMarks }}</td>
+                <td>{{ u.timer }}</td>
+                <td>{{ u.date | date }}</td>
+                <td>
+                    <button mat-raised-button color="primary" (click)="viewPaper(u)">View Set</button>
+
+                </td>
+                <td>
+                   <!----<i class='fas fa-file-image' (click)="downloadPdf(u)" style='cursor: pointer;margin-left: 10%;margin-right: 10px;font-size:25px;color:rgb(223, 59, 48)'></i>-->
+                </td>
+                <td>
+                    <i (click)="removePaper(u._id)" class="fa" style="cursor: pointer; font-size:20px; color: rgb(224, 39, 39);margin-right:8px;margin-left: 8px;">&#xf00d;</i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

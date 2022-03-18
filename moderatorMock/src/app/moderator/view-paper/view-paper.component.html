@@ -1,0 +1,119 @@
+<div class="bgCover">
+    <h1 style="color: rgba(0, 0, 255, 0.637);margin: 5px; padding:5px;">EXAM NAME</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>SUBJECT:</th>
+                <td>{{paper.subject}}</td>
+            </tr>
+
+            <tr>
+                <th>COURSE:</th>
+                <td>{{paper.course}}</td>
+            </tr>
+
+            <tr>
+                <th>STREAM:</th>
+                <td>{{paper.stream}}</td>
+            </tr>
+
+            <tr>
+                <th>SEMESTER:</th>
+                <td>{{paper.sem}}</td>
+            </tr>
+
+            <tr>
+                <th>TOTAL MARKS: </th>
+                <td>{{paper.totalMarks}}</td>
+            </tr>
+
+            <tr>
+                <th>TIME:</th>
+                <td>{{paper.timer}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button mat-raised-button color="accent" style="margin:5px;padding: 5px;" *ngIf="!live;else stop" (click)="startExam()">Start Test</button>
+    <ng-template #stop><button mat-raised-button color="warn" style="margin:15px">THIS TEST IS LIVE</button></ng-template>
+</div>
+
+<h2 class="title" style="font-weight: bolder; color:rgb(31, 78, 167); border-bottom: 5px solid rgb(10, 67, 173);">Question summary</h2>
+
+<div class="container-fluid row" style="background-color: rgb(255, 255, 255);padding: 10px;">
+
+    <div class="col-md-8" style="margin: 5px;">
+
+        <div class="overview">
+            <button mat-raised-button color="primary" (click)="openPaper()">PAPER OVERVIEW</button>
+            <button class="examDetails" mat-raised-button color="primary" (click)="instruct()">INSTRUCTION</button>
+        </div>
+
+        <ul role="list" class="list-group" style="border:1px solid rgb(187, 187, 187); box-shadow: 0px 3px 12px 0px rgba(109, 109, 109, 0.904);">
+            <li class="list-group-item" style="height:100px;color: rgb(14, 92, 182);font-weight: bolder" role="listitem">Q{{question.indexOf(dataDisplay) + 1}}: {{dataDisplay.question}}</li>
+            <li *ngIf="dataDisplay.file" class="list-group-item" style="height: 350px;" role="listitem">
+        Diagram1234313223:
+                <img class="diagram" src="https://expertprofessionals.org:8080/{{dataDisplay.file}}">
+            </li>
+            <li style="height: 100px;" class="list-group-item" *ngIf="dataDisplay.option1!=null">
+                (i) {{dataDisplay.option1}}
+            </li>
+
+            <li class="list-group-item" *ngIf="dataDisplay.imgOpt1" class="diagram" role="listitem">
+
+                (i)<img class="diagram" src="https://expertprofessionals.org:8080/{{dataDisplay.imgOpt1}}">
+
+            </li>
+            <li style="height: 100px;" class="list-group-item" *ngIf="dataDisplay.option2!=null" role="listitem">
+                (ii) {{[dataDisplay.option2]}}
+            </li>
+            <li class="list-group-item" *ngIf="dataDisplay.imgOpt2" class="diagram" role="listitem">
+
+                (ii)<img class="diagram" src="https://expertprofessionals.org:8080/{{dataDisplay.imgOpt2}}">
+
+            </li>
+            <li style="height: 100px;" class="list-group-item" *ngIf="dataDisplay.option3!=null" role="listitem">
+                (iii) {{[dataDisplay.option3]}}
+            </li>
+            <li class="list-group-item" *ngIf="dataDisplay.imgOpt3" class="diagram" role="listitem">
+
+                (iii)<img class="diagram" src="https://expertprofessionals.org:8080/{{dataDisplay.imgOpt3}}">
+            </li>
+            <li style="height: 100px;" class="list-group-item" *ngIf="dataDisplay.option3!=null" role="listitem">
+                (iv) {{[dataDisplay.option4]}}
+            </li>
+            <li class="list-group-item" *ngIf="dataDisplay.imgOpt4" class="diagram" role="listitem">
+
+                (iv)<img class="diagram" src="https://expertprofessionals.org:8080/{{dataDisplay.imgOpt4}}">
+
+            </li>
+            <li class="list-group-item" *ngIf="dataDisplay.imgOpt5" class="diagram" role="listitem">
+
+                Answer:<img class="diagram" src="https://expertprofessionals.org:8080/{{dataDisplay.imgAnswer}}">
+
+            </li>
+
+        </ul>
+
+        <div class="row" style="padding:5%;">
+            <div class="col-lg-6">
+                <button style="margin: 2px;" [disabled]="i<=0" type="submit" mat-raised-button color="primary" (click)="prev()">Previous</button> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-lg-6">
+                <button style="margin: 2px; float: right;" type="submit" mat-raised-button color="primary" (click)="next()">Next &raquo;</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="col-md-2" style="margin: 30px;padding-top: 5%;">
+        <div class="grid-container">
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip color="primary" selected [ngClass]="(question[question.indexOf(q)][5]=='' )? 'item': 'answered'" (click)="goto(question.indexOf(q))" *ngFor="let q of question"> {{question.indexOf(q) + 1}}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+    </div>
+
+</div>

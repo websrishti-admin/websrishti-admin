@@ -1,0 +1,79 @@
+<div class="container-fluid" style="padding: 5%;">
+    <div class="row"><i class="fas fa-file-alt" style='margin-left: 10%;margin-right: 10px;font-size:25px;color:rgb(79, 39, 221)'></i>
+        <h2>Results</h2>
+    </div>
+
+    <div class="example-container">
+
+
+
+        <mat-form-field>
+            <mat-select [(ngModel)]="subject" placeholder="Subject" name="subject" (ngModelChange)="selectDetails(subject)">
+                <mat-option *ngFor="let s of subjects " [value]="s">{{ s.subject }} {{ s.subCode}}</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" style="margin: 5px;">
+            <mat-label>Course</mat-label>
+            <input matInput disabled [(ngModel)]="course" name="course" placeholder="B.Tech">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Add Type</mat-label>
+            <input matInput disabled [(ngModel)]="type" name="type" placeholder="Half-Yearly/Annually/Backlog">
+
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Add Stream</mat-label>
+            <input matInput disabled [(ngModel)]="stream" name="stream" placeholder="cse">
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="margin: 5px; ">
+            <mat-label>Add Semester</mat-label>
+            <input disabled matInput #postalCode maxlength="2" [(ngModel)]="sem" name="sem" placeholder="Ex. 3rd Semester" [(ngModel)]="sem" name="sem">
+
+        </mat-form-field>
+
+
+
+
+
+        <table class="table">
+            <thead class="thead-red" style="text-align: center;">
+                <tr>
+                    <th scope="col">#</th>
+
+                    <th scope="col">Course</th>
+                    <th scope="col">Stream</th>
+                    <th scope="col">Name/Year</th>
+                    <th scope="col">Semester</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Student</th>
+                    <th scope="col">Total Marks</th>
+                    <th scope="col">Obtained Marks</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let a of results" style="text-align: center;">
+                    <th scope="row">{{ results.indexOf(a) + 1 }}</th>
+
+                    <td>{{ a.course}}</td>
+                    <td>{{ a.stream}}</td>
+                    <td>{{ a.year}}</td>
+
+                    <td>{{ a.sem}}</td>
+                    <td>{{ a.subject}}</td>
+                    <td>{{ a.studentName }}</td>
+                    <td>{{ a.totalMarks}}</td>
+                    <td>{{ a.obtMarks}}</td>
+                    <td>{{ a.date | date}}</td>
+                    <td><button mat-raised-button color="primary" (click)="viewResult(a)">View Set</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

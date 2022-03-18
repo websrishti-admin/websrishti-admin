@@ -1,0 +1,52 @@
+<div class="card-container">
+    <div class="upper-container">
+        <div class="image-container">
+            <img src="assets/images/pro.png">
+        </div>
+
+    </div>
+
+
+
+    <div class="lower-container">
+
+        <div>
+
+
+            <div class="container">
+
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>Name </th>
+                            <td>{{ user.name }}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <th>Mobile: </th>
+                            <td>{{ user.contact }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email: </th>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Password: </th>
+                            <td>{{ user.password }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>
+<div class="button" style="margin-left: 5%;">
+    <button mat-raised-button color="primary" (click)="edit()">Edit</button>
+</div>

@@ -1,0 +1,2 @@
+<app-sign-in *ngIf="!UserById" (signedInEvent)="checkToken()"></app-sign-in>
+<app-main-nav *ngIf="UserById"></app-main-nav>

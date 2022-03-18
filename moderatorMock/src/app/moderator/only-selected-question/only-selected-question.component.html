@@ -1,0 +1,133 @@
+<div class="container-fluid" style="margin-top: 30px;padding: 5%;width: 100%;">
+
+    <form class="example-form" style="width: 100%;">
+
+        <mat-form-field>
+            <mat-select [(ngModel)]="subject" placeholder="Subject" name="subject" (ngModelChange)="selectDetails(subject)">
+                <mat-option *ngFor="let s of subjects " [value]="s">{{ s.subject }} {{ s.subCode}}</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" style="margin: 5px;">
+            <mat-label>Course</mat-label>
+            <input matInput disabled [(ngModel)]="course" name="course" placeholder="B.Tech">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Add Year</mat-label>
+            <input matInput disabled [(ngModel)]="type" name="type">
+
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Add Stream</mat-label>
+            <input matInput disabled [(ngModel)]="stream" name="stream" placeholder="cse">
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="margin: 5px; ">
+            <mat-label>Add Semester</mat-label>
+            <input disabled matInput #postalCode maxlength="2" [(ngModel)]="sem" name="sem" placeholder="Ex. 3rd Semester">
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="margin: 5px; ">
+            <mat-label>Add Exam-Name</mat-label>
+            <input matInput [(ngModel)]="examName" name="examName" placeholder="Half-Yearly/Annually/Backlog">
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width" style="margin: 5px;">
+            <mat-label>Insert Your Name</mat-label>
+            <input matInput [(ngModel)]="teacher" name="teacher" placeholder="Ex. TEACHER">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" style="margin: 5px;">
+            <mat-label>Total Marks</mat-label>
+            <input matInput [(ngModel)]="totalMarks" name="totalMarks">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" style="margin: 5px;">
+            <mat-label>Time(mins)</mat-label>
+            <input matInput [(ngModel)]="timer" name="timer">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select [(ngModel)]="examType" placeholder="EXAM(MCQ/Desc)" name="examType">
+                <mat-option value="MCQ">MCQ</mat-option>
+                <mat-option value="DESC">DESCRIPTIVE</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field style="margin: 5px;">
+            <mat-select [(ngModel)]="descType" placeholder="Answer Type" name="descType">
+                <mat-option value="pdf">PDF</mat-option>
+                <mat-option value="input">INPUT</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <!--<mat-form-field class="example-full-width" style="margin: 5px;">
+            <mat-label>Set Instructions</mat-label>
+            <input matInput [(ngModel)]="instruction" name="intruction">
+        </mat-form-field>-->
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Set Instructions</label>
+            <textarea class="form-control" [(ngModel)]="instruction" name="intruction" rows="3"></textarea>
+        </div>
+
+
+
+
+
+    </form>
+    <mat-accordion >
+        <mat-expansion-panel hideToggle *ngFor="let q of questionSet">
+
+            <mat-expansion-panel-header >
+
+                <mat-panel-title style="color: rgb(55, 69, 148);font-weight: bolder;">
+                    {{ q.question }}
+                </mat-panel-title>
+                <mat-panel-description style="float: right;">
+                    Marks: {{ q.marks }}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-list   role="list" class="row">
+                <mat-list-item *ngIf="q.file" style="height: 250px;"   role="listitem"> 
+                    Diagram:
+                    <img class="diagram" src="https://expertprofessionals.org:8080/{{q.file}}">
+                </mat-list-item>
+                <mat-list-item *ngIf="q.option1!=null" role="listitem">(i) {{[q.option1]}}</mat-list-item>
+                <mat-list-item *ngIf="q.imgOpt1" class="diagram" role="listitem">
+                    <img class="diagram" src="https://expertprofessionals.org:8080/{{q.imgOpt1}}">
+                </mat-list-item>
+                <mat-list-item *ngIf="q.option2!=null" role="listitem">(ii) {{[q.option2]}}</mat-list-item>
+                <mat-list-item *ngIf="q.imgOpt2" class="diagram" role="listitem">
+                    <img class="diagram" src="https://expertprofessionals.org:8080/{{q.imgOpt2}}">
+                </mat-list-item>
+                <mat-list-item *ngIf="q.option3!=null" role="listitem">(iii) {{[q.option3]}}</mat-list-item>
+                <mat-list-item *ngIf="q.imgOpt3" class="diagram" role="listitem">
+                    <img class="diagram" src="https://expertprofessionals.org:8080/{{q.imgOpt3}}">
+                </mat-list-item>
+                <mat-list-item *ngIf="q.option4!=null" role="listitem">(iv) {{[q.option4]}}</mat-list-item>
+                <mat-list-item *ngIf="q.imgOpt4" class="diagram" role="listitem">
+                    <img class="diagram" src="https://expertprofessionals.org:8080/{{q.imgOpt4}}">
+                </mat-list-item>
+                <mat-list-item *ngIf="q.imgOpt1!=null || q.imgOpt2!=null || q.imgOpt3!=null || q.imgOpt4!=null" class="diagram"  role="listitem">
+                    
+                    <img class="diagram" *ngIf="q.answer==1 && q.imgOpt1!=null" src="https://expertprofessionals.org:8080/{{q.imgOpt1}}">
+                    <img class="diagram" *ngIf="q.answer==2 && q.imgOpt2!=null" src="https://expertprofessionals.org:8080/{{q.imgOpt2}}">
+                    <img class="diagram" *ngIf="q.answer==3 && q.imgOpt3!=null" src="https://expertprofessionals.org:8080/{{q.imgOpt3}}">
+                    <img class="diagram" *ngIf="q.answer==4 && q.imgOpt4!=null" src="https://expertprofessionals.org:8080/{{q.imgOpt4}}">
+                    
+                </mat-list-item>
+                <mat-list-item *ngIf="q.answer!=null" role="listitem">Answer : {{[q.answer]}}</mat-list-item>
+            </mat-list>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="example-button-row">
+        <button mat-raised-button color="accent" style="margin:15px" (click)=submit()>Finalize Test Paper</button>
+    </div>
+</div>

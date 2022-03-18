@@ -1,0 +1,45 @@
+<div class="container-fluid" style="padding: 5%;">
+    <div class="row"><i class="fas fa-file-alt" style='margin-left: 10%;margin-right: 10px;font-size:25px;color:rgb(19, 129, 38)'></i>
+        <h2>Live Tests</h2>
+    </div>
+    <table class="table">
+        <thead class="thead-purple" style="text-align: center;">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">EXAM</th>
+                <th scope="col">Created by</th>
+                <th scope="col">Course</th>
+                <th scope="col">Stream</th>
+                <th scope="col">Name/Year</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Total Marks</th>
+                <th scope="col">Timer</th>
+                <!--<th scope="col">Download</th>-->
+                <th scope="col">Remove</th>
+                <th scope="col">Stop exam</th>
+
+            </tr>
+        </thead>
+        <tbody *ngFor="let u of testpapers" style="text-align: center;">
+            <tr *ngIf="u.LIVE">
+                <th scope="row">{{ testpapers.indexOf(u) + 1 }}</th>
+                <td>{{ u.examName }}</td>
+                <td>{{ u.teacher }}</td>
+                <td>{{ u.course }}</td>
+                <td>{{ u.stream }}</td>
+                <td>{{ u.year}}</td>
+                <td>{{ u.sem }}</td>
+                <td>{{ u.subject }}</td>
+                <td>{{ u.totalMarks }}</td>
+                <td>{{ u.timer }}</td>
+                <td>
+                    <!--<i class='fas fa-file-image' (click)="downloadPdf(u)" style='cursor: pointer;margin-left: 10%;margin-right: 10px;font-size:25px;color:rgb(223, 59, 48)'></i>-->
+                </td>
+                <td><i (click)="deleteExam(u._id)" class="fa" style="font-size:25px; color: rgb(224, 39, 39);padding:5px;margin-right:8px;margin-left: 8px;cursor: pointer;">&#xf00d;</i></td>
+                <td><i (click)="stopExam(u._id)" class='far fa-stop-circle' style='font-size:25px;color:red;cursor: pointer;padding:5px;'></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

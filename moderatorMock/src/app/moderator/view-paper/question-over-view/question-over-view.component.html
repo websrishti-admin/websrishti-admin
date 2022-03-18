@@ -1,0 +1,54 @@
+<div class="container-fluid" style="padding: 5%;">
+    <h2 mat-dialog-title>{{ paper.examName }}</h2>
+    <h2 mat-dialog-title>Subject:{{ paper.suject }}</h2>
+    <h2 mat-dialog-title>Subject Code: {{ paper.subjectCode }}</h2>
+    <h2 mat-dialog-title>Course: {{ paper.course }}</h2>
+    <h2 mat-dialog-title>Stream: {{ paper.stream }}</h2>
+    <h2 mat-dialog-title>Semester: {{ paper.sem }}</h2>
+    <mat-dialog-content class="mat-typography">
+        <ul role="list" class="list-group" *ngFor="let dataDisplay of question">
+            <li class="list-group-item" style="height:100px;color: rgb(6, 7, 7);font-weight: bolder" role="listitem">Q{{question.indexOf(dataDisplay) + 1}}: {{dataDisplay.question}}</li>
+            <li class="list-group-item" style="height: 350px;" role="listitem" *ngIf="dataDisplay.diagram">
+                Diagram:
+                <img class="diagram" style="width: 45px; height: 45px ;" style="width: 45px; height: 45px ;" src="https://expertprofessionals.org:8080/{{dataDisplay.diagram}}">
+            </li>
+            <li class="list-group-item" *ngIf="dataDisplay.option1">
+                (i) {{dataDisplay.option1}}
+            </li>
+
+            <li *ngIf="dataDisplay.imgOpt1" class="diagram" role="listitem">
+
+                (i)<img class="diagram" style="width: 45px; height: 45px ;" src="https://expertprofessionals.org:8080/{{dataDisplay.imgOpt1}}">
+
+            </li>
+            <li class="list-group-item" *ngIf="dataDisplay.option2" role="listitem">
+                (ii) {{[dataDisplay.option2]}}
+            </li>
+            <li *ngIf="dataDisplay.imgOpt2" class="diagram" style="width: 45px; height: 45px ;" role="listitem">
+
+                (ii)<img class="diagram" style="width: 45px; height: 45px ;" src="https://expertprofessionals.org:8080/{{dataDisplay.imgOpt2}}">
+
+            </li>
+            <li class="list-group-item" *ngIf="dataDisplay.option3" role="listitem">
+                (iii) {{[dataDisplay.option3]}}
+            </li>
+            <li class="list-group-item" *ngIf="dataDisplay.imgOpt3" class="diagram" role="listitem">
+
+                (iii)<img class="diagram" style="width: 45px; height: 45px ;" src="https://expertprofessionals.org:8080/{{dataDisplay.imgOpt3}}">
+            </li>
+            <li class="list-group-item" *ngIf="dataDisplay.option4" role="listitem">
+                (iv) {{[dataDisplay.option4]}}
+            </li>
+            <li class="list-group-item" *ngIf="dataDisplay.imgOpt4" class="diagram" role="listitem">
+
+                (iv)<img class="diagram" style="width: 45px; height: 45px ;" src="https://expertprofessionals.org:8080/{{dataDisplay.imgOpt4}}">
+
+            </li>
+
+        </ul>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <i class="fa" mat-dialog-close style="cursor: pointer; font-size:20px; color: rgb(68, 68, 68);margin-right:8px;margin-left: 8px;">&#xf00d;</i>
+    </mat-dialog-actions>
+</div>

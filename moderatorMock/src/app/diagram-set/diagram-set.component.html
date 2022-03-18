@@ -1,0 +1,71 @@
+<div class="container-fluid" style="padding: 5%;">
+    <div class="row"><i class='fas fa-file-image' style='margin-left: 10%;margin-right: 10px;font-size:25px;color:rgb(79, 39, 221)'></i>
+        <h2>Diagram Set</h2>
+    </div>
+    <div class="example-container">
+
+
+        <mat-form-field>
+            <mat-select [(ngModel)]="subject" placeholder="Subject" name="subject" (ngModelChange)="selectDetails(subject)">
+                <mat-option *ngFor="let s of subjects " [value]="s">{{ s.subject }} {{ s.subCode}}</mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" style="margin: 5px;">
+            <mat-label>Course</mat-label>
+            <input matInput disabled [(ngModel)]="course" name="course" placeholder="B.Tech">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Add Type</mat-label>
+            <input matInput disabled [(ngModel)]="type" name="type" placeholder="Half-Yearly/Annually/Backlog">
+
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Add Stream</mat-label>
+            <input matInput disabled [(ngModel)]="stream" name="stream" placeholder="cse">
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="margin: 5px; ">
+            <mat-label>Add Semester</mat-label>
+            <input disabled matInput #postalCode maxlength="2" [(ngModel)]="sem" name="sem" placeholder="Ex. 3rd Semester" [(ngModel)]="sem" name="sem">
+
+        </mat-form-field>
+
+    </div>
+    <table class="table">
+        <thead class="thead-purple" style="text-align: center;">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Created by</th>
+                <th scope="col">Course</th>
+                <th scope="col">Stream</th>
+                <th scope="col">Year</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+                <th scope="col">Remove</th>
+
+            </tr>
+        </thead>
+        <tbody *ngFor="let u of diagramBank">
+            <tr style="text-align: center;">
+                <th scope="row">{{ diagramBank.indexOf(u) + 1 }}</th>
+                <td>{{ u.teacher }}</td>
+                <td>{{ u.course }}</td>
+                <td>{{ u.stream }}</td>
+                <td>{{ u.type }}</td>
+                <td>{{ u.sem }}</td>
+                <td>{{ u.subject }}</td>
+                <td>{{ u.date }}</td>
+                <td>
+                    <button mat-raised-button color="primary" (click)="viewDiagramPaper(u)">View Set</button>
+
+                </td>
+                <td><i class="fa" style="font-size:20px; color: rgb(224, 39, 39);margin-right:8px;margin-left: 8px;">&#xf00d;</i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
