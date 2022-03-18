@@ -56,6 +56,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Created by</th>
+                <th scope="col">Topic</th>
                 <th scope="col">Course</th>
                 <th scope="col">Stream</th>
                 <th scope="col">Year</th>
@@ -70,6 +71,7 @@
             <tr style="text-align: center;">
                 <th scope="row">{{ paperBank.indexOf(u) + 1 }}</th>
                 <td>{{ u.teacher }}</td>
+                <td>{{ u.mcq_topic }}</td>
                 <td>{{ u.course }}</td>
                 <td>{{ u.stream }}</td>
                 <td>{{ u.type }}</td>

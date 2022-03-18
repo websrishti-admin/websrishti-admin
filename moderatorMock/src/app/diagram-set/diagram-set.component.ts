@@ -59,9 +59,11 @@ export class DiagramSetComponent implements OnInit {
       type: this.subject.year,
       sub: this.subject.subject,
       subCode: this.subject.subCode,
-      stream: this.subject.stream
+      stream: this.subject.stream,
+      
     }).subscribe(d => {
       this.diagramBank = d;
+      console.log("get diagram");
       console.log(this.diagramBank);
     });
   }

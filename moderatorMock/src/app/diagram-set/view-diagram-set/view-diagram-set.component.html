@@ -1,7 +1,7 @@
 <div class="container-fluid" style="padding: 5%;">
 
     <div class="row"><i class='fas fa-file-image' style='margin-left: 10%;margin-right: 10px;font-size:25px;color:rgb(79, 39, 221)'></i>
-        <h2>Diagram Set noooooo</h2>
+        <h2>Diagram Set</h2>
     </div>
     <mat-accordion>
         <mat-expansion-panel hideToggle *ngFor="let q of diagramPaper.diagrams" style="margin:2px;border: 1px solid rgb(184, 184, 184);">
@@ -14,7 +14,7 @@
             </mat-expansion-panel-header>
             <mat-list role="list" class="row">
                 <mat-list-item *ngIf="q.diagram" style="height: 250px;" role="listitem">
-                    Diagram 1212121:
+                    Diagram:
                     <img class="diagram" src="https://expertprofessionals.org:8080/{{q.diagram}}">
                 </mat-list-item>
                 <mat-list-item *ngIf="q.option1" role="listitem">(i) {{[q.option1]}}</mat-list-item>
