@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/services/REST';
+import {FormControl, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-only-selected-question',
@@ -7,6 +9,7 @@ import { Service } from 'src/app/services/REST';
   styleUrls: ['./only-selected-question.component.css']
 })
 export class OnlySelectedQuestionComponent implements OnInit {
+  subjectControl = new FormControl('');
   questionSet: any;
   subject: any;
   type: any;

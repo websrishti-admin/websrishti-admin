@@ -18,7 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule, MatTable} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
@@ -47,6 +47,8 @@ import { EditComponent } from './moderator/profile/edit/edit.component';
 import { ProfileComponent } from './moderator/profile/profile/profile.component';
 import { InstructionSetComponent } from './moderator/view-paper/instruction-set/instruction-set.component';
 import { QuestionOverViewComponent } from './moderator/view-paper/question-over-view/question-over-view.component';
+//import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -83,6 +85,7 @@ import { QuestionOverViewComponent } from './moderator/view-paper/question-over-
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -98,7 +101,8 @@ import { QuestionOverViewComponent } from './moderator/view-paper/question-over-
     MatInputModule,
     MaterialModule,
     MatMenuModule,
-    MatChipsModule
+    MatChipsModule,
+    MatSelectModule
   ],
   providers: [Service],
   bootstrap: [AppComponent]
