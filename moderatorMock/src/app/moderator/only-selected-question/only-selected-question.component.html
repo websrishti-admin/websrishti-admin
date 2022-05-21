@@ -2,11 +2,13 @@
 
     <form class="example-form" style="width: 100%;">
 
-        <mat-form-field>
-            <mat-select [(ngModel)]="subject" placeholder="Subject" name="subject" (ngModelChange)="selectDetails(subject)">
-                <mat-option *ngFor="let s of subjects " [value]="s">{{ s.subject }} {{ s.subCode}}</mat-option>
 
-            </mat-select>
+
+        <mat-form-field appearance="fill">
+        <mat-label>Subject</mat-label>
+        <mat-select [(ngModel)]="subject" placeholder="Subject" name="subject" (ngModelChange)="selectDetails(subject)">  
+            <mat-option *ngFor="let s of subjects" value="s">{{ s.subject }} {{ s.subCode}}</mat-option>
+        </mat-select>
         </mat-form-field>
 
         <mat-form-field class="example-full-width" style="margin: 5px;">
@@ -24,12 +26,12 @@
             <input matInput disabled [(ngModel)]="stream" name="stream" placeholder="cse">
 
         </mat-form-field>
-        <mat-form-field class="example-full-width" style="margin: 5px; ">
+       <mat-form-field class="example-full-width" style="margin: 5px; ">
             <mat-label>Add Semester</mat-label>
             <input disabled matInput #postalCode maxlength="2" [(ngModel)]="sem" name="sem" placeholder="Ex. 3rd Semester">
 
         </mat-form-field>
-        <mat-form-field class="example-full-width" style="margin: 5px; ">
+         <mat-form-field class="example-full-width" style="margin: 5px; ">
             <mat-label>Add Exam-Name</mat-label>
             <input matInput [(ngModel)]="examName" name="examName" placeholder="Half-Yearly/Annually/Backlog">
         </mat-form-field>
@@ -40,18 +42,14 @@
             <input matInput [(ngModel)]="teacher" name="teacher" placeholder="Ex. TEACHER">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width" style="margin: 5px;">
-            <mat-label>Total Marks</mat-label>
-            <mat-label>{{totalMarks}}</mat-label>
-            <!--<input matInput [(ngModel)]="totalMarks" name="totalMarks">-->
-        </mat-form-field>
+       
 
         <mat-form-field class="example-full-width" style="margin: 5px;">
             <mat-label>Time(mins)</mat-label>
             <input matInput [(ngModel)]="timer" name="timer">
         </mat-form-field>
 
-        <mat-form-field>
+       <mat-form-field>
             <mat-select [(ngModel)]="examType" placeholder="EXAM(MCQ/Desc)" name="examType">
                 <mat-option value="MCQ">MCQ</mat-option>
                 <mat-option value="DESC">DESCRIPTIVE</mat-option>
@@ -59,13 +57,22 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field style="margin: 5px;">
+          <mat-form-field style="margin: 5px;">
             <mat-select [(ngModel)]="descType" placeholder="Answer Type" name="descType">
                 <mat-option value="pdf">PDF</mat-option>
                 <mat-option value="input">INPUT</mat-option>
-
             </mat-select>
+        </mat-form-field> 
+        
+        <mat-form-field class="example-full-width" style="margin: 5px;">
+            <mat-label>Total Marks</mat-label>
+            <input matInput disabled value={{totalMarks}} >
         </mat-form-field>
+        
+       
+
+
+
 
         <!--<mat-form-field class="example-full-width" style="margin: 5px;">
             <mat-label>Set Instructions</mat-label>

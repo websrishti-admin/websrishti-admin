@@ -9,7 +9,6 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./only-selected-question.component.css']
 })
 export class OnlySelectedQuestionComponent implements OnInit {
-  subjectControl = new FormControl('');
   questionSet: any;
   subject: any;
   type: any;
