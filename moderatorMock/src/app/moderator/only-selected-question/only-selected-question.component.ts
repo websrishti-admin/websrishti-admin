@@ -139,7 +139,7 @@ export class OnlySelectedQuestionComponent implements OnInit {
       this.calTotalMarks();
       console.log("Question set");
       console.log(this.questionSet);
-      
+      console.log('subjects',this.subjects);
       
     });
   }
@@ -154,7 +154,7 @@ export class OnlySelectedQuestionComponent implements OnInit {
 
 
   selectDetails(s) {
-    // console.log(s);
+     console.log('chosen subject', s);
     this.course = s.course;
     this.sem = s.sem;
     this.type = s.year;

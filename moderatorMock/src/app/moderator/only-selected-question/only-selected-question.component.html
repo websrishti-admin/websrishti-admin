@@ -7,7 +7,7 @@
         <mat-form-field appearance="fill">
         <mat-label>Subject</mat-label>
         <mat-select [(ngModel)]="subject" placeholder="Subject" name="subject" (ngModelChange)="selectDetails(subject)">  
-            <mat-option *ngFor="let s of subjects" value="s">{{ s.subject }} {{ s.subCode}}</mat-option>
+            <mat-option *ngFor="let s of subjects" [value]="s">{{ s.subject }} {{ s.subCode}}</mat-option>
         </mat-select>
         </mat-form-field>
 
