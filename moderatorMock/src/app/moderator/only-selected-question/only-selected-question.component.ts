@@ -30,6 +30,7 @@ export class OnlySelectedQuestionComponent implements OnInit {
   selectedDiagram: any = [];
   qModel: any;
   varyi: any;
+  topic:any;
   //moderator: any;
   
 
@@ -72,7 +73,7 @@ export class OnlySelectedQuestionComponent implements OnInit {
     if (this.examType === 'MCQ') {
 
       this.service.setExamPaperModerator({
-        examName: this.examName,
+        examName: this.examName+", Topic:-"+this.topic,
         id: this.moderator._id,
         teacher: this.teacher,
           sub: this.subject.subject,
